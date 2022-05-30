@@ -67,4 +67,10 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  # Whitelist Docker Host
+  # Rails have a security features that blocks access from unknown sources.
+  # We want our different docker containers to communicate with each other,
+  # so we need to whitelist the drkiq container.
+  config.hosts << "drkiq"
 end
