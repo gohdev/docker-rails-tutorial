@@ -73,4 +73,8 @@ Rails.application.configure do
   # We want our different docker containers to communicate with each other,
   # so we need to whitelist the drkiq container.
   config.hosts << "drkiq"
+
+  logger           = ActiveSupport::Logger.new(STDOUT)
+  logger.formatter = config.log_formatter
+  config.logger    = ActiveSupport::TaggedLogging.new(logger)
 end
